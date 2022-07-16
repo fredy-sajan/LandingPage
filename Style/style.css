@@ -1,0 +1,314 @@
+/* CSS Reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Set font to all body element's */
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+/* Creating Grid boxes*/
+.continer{
+    max-width: 1600px;
+    width: 100%;
+    height: 100vh;
+    margin: 0px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.2fr;
+    grid-template-rows: 1fr 4fr 1.2fr 1.2fr;
+    grid-template-areas: "logo   logo   header"
+                         "main   main   img-box" 
+                         "quote  quote  img-box"
+                         "btn1   btn2   img-box";
+}
+
+.logo{
+    grid-area: logo;
+    background-color: #E6F0EF;
+}
+
+.main{
+    grid-area: main;
+}
+
+.quote{
+    grid-area: quote;
+    background-color: #E6F0EF;
+}
+
+.btn1{
+    grid-area: btn1;
+    background-color: #0F792D;
+}
+
+.btn2{
+    grid-area: btn2;
+    background-color: #497C38;
+}
+
+header{
+    grid-area: header;
+}
+
+.img-box{
+    grid-area: img-box;
+    background-color: gray;
+}
+
+
+/* global declarations */
+a{
+    text-decoration: none;
+}
+
+
+/* Styiling contents on grid boxes */
+.continer .logo{
+    display: flex;
+    align-items: center;
+    padding-left: 125px;
+}
+
+.logo a{
+    color: #0A7B34;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.continer .main{
+    padding: 0 125px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.main h1{
+    font-size: 36px;
+    line-height: 49px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    max-width: 289px;
+}
+
+
+.quote{
+    display: flex;
+    align-items: center;
+    padding-left: 125px;
+}
+
+.quote h2{
+    font-size: 22px;
+    line-height: 33px;
+    font-weight: 700;
+}
+
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn a{
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    transition: btn1 .2s ease-in;
+    transition: btn2 .2s ease-in;
+}
+
+
+/* button hover */
+.btn1:hover{
+    background-color: #05501A;
+}
+
+.btn2:hover{
+    background-color: #315227;
+}
+
+
+
+header{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 30px;
+}
+
+header ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+
+header ul li a{
+    color: black;
+    font-weight: 700;
+    padding: 24px 15px;
+    transition: color .2s ease-in;
+    transition: background-color .2s ease-out;
+}
+
+/* header nav  hover  */
+header ul li a:hover{
+    color: #09792d;
+    background-color: #E6F0EF;
+}
+
+.img-box{
+    background: url(../Images/3.jpg) no-repeat top center;
+    background-size: cover;
+}
+
+.img-box img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* animatins */
+/* main */
+.main h1{
+    animation-duration: 2s;
+    transform: translateX(300px);
+}
+.main p{
+    animation-duration: 2s;
+    transform: translateX(-300px);
+}
+.pop-in{
+    animation: popIn cubic-bezier(1,.99,0,.01)  forwards;
+}
+
+@keyframes popIn {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+/* img-box */
+.slide-in{
+    animation: slideIn 2s ease-in forwards;
+}
+
+@keyframes slideIn {
+    0%{
+        transform: translateY(200px);
+    }
+    100%{
+        transform: none;
+    }
+}
+
+
+
+/* Media querry start */
+@media (max-width: 765px) {
+    .img-box{
+        height: 30vh;
+        object-fit: cover;
+    }
+
+    .continer{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 100px 70px auto auto 70px;
+        grid-template-areas: "logo  logo"
+                             "header header"
+                             "img-box  img-box"
+                             "main  main"
+                             "quote quote"
+                             "btn1   btn2";
+    }
+
+    .continer .logo{
+        padding: 0;
+        justify-content: center;
+    }
+
+    header{
+        background-color: #C3DFDD;
+        padding: 0;
+        justify-content: center;
+    }
+
+    .continer .main{
+        padding: 30px 40px;
+        margin-top: -36px;
+        margin-bottom: 61px;
+    }
+
+    .main h1{
+        font-size: 30px;
+        line-height: 39px;
+        margin-top: 25px;
+    }
+
+    .quote{
+        padding: 30px 40px;
+        margin-top: -54px;
+    }
+
+    .quote h2{
+        font-size: 20px;
+        line-height: 29px;
+    }
+
+    .btn{
+        margin-top: 0;
+        padding: 35px 0;
+    }
+
+    .btn a{
+        font-size: 19px;
+    }
+
+    header ul li a{
+        padding: 24px 20px;
+    }
+
+    
+        img-box
+        .slide-in{
+            animation: slideIn 2s ease-in forwards;
+        }
+
+        @keyframes slideIn {
+            0%{
+                transform: translateY(-190px);
+            }
+            100%{
+                transform: none;
+            }
+        }
+}
+
+@media (min-width: 765px) and (max-width: 912px) {
+    .quote{
+        padding-left: 120px;
+    }
+}
+
+@media (min-width: 920px) and (max-width: 1024px) {
+    .quote{
+        padding-left: 80px;
+    }
+}
+
+@media (min-width: 1144px) and (max-width: 1230px) {
+    .quote{
+        padding-left: 70px;
+    }
+}
